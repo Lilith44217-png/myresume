@@ -1,0 +1,410 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anupriya Kaushal | Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #050816;
+      --card: rgba(15, 23, 42, 0.65);
+      --border: rgba(148, 163, 184, 0.15);
+      --primary: #8b5cf6;
+      --secondary: #06b6d4;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --glow: 0 0 40px rgba(139, 92, 246, 0.35);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(139,92,246,0.18), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(6,182,212,0.18), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    .grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0.2));
+      pointer-events: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1150px;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sidebar,
+    .main {
+      background: var(--card);
+      backdrop-filter: blur(22px);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--glow);
+    }
+
+    .profile {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 24px;
+      margin: 0 auto 22px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      box-shadow: 0 0 35px rgba(139,92,246,0.45);
+    }
+
+    h1 {
+      font-size: 2rem;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    .section {
+      margin-bottom: 34px;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--secondary);
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .contact-item {
+      margin-bottom: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+      word-break: break-word;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      color: #dbeafe;
+    }
+
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 24px;
+    }
+
+    .headline {
+      max-width: 650px;
+    }
+
+    .headline h2 {
+      font-size: 3rem;
+      line-height: 1;
+      margin-bottom: 12px;
+      font-weight: 800;
+      background: linear-gradient(to right, #ffffff, #8b5cf6, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .headline p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .status {
+      padding: 12px 18px;
+      border-radius: 16px;
+      background: rgba(139,92,246,0.12);
+      border: 1px solid rgba(139,92,246,0.25);
+      color: #c4b5fd;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .card {
+      position: relative;
+      padding: 24px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(139,92,246,0.45);
+      box-shadow: 0 0 30px rgba(139,92,246,0.18);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      color: var(--secondary);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.96rem;
+    }
+
+    ul {
+      padding-left: 18px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .headline h2 {
+        font-size: 2.2rem;
+      }
+
+      .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sidebar,
+      .main {
+        padding: 24px;
+        border-radius: 22px;
+      }
+
+      .headline h2 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid"></div>
+
+  <div class="container">
+
+    <aside class="sidebar">
+
+      <div class="profile">
+        <div class="avatar">AK</div>
+        <h1>Anupriya<br>Kaushal</h1>
+        <p class="tagline">
+          Business & Technology Student focused on AI, innovation, and future-driven problem solving.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Contact</div>
+
+        <div class="contact-item">
+          <strong>Email</strong>
+          anupriyakaushal288@gmail.com
+        </div>
+
+        <div class="contact-item">
+          <strong>Location</strong>
+          Delhi, India
+        </div>
+
+        <div class="contact-item">
+          <strong>LinkedIn</strong>
+          linkedin.com/in/anupriya-kaushal-01910b3a6
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Skills</div>
+
+        <div class="skills">
+          <div class="skill">AI Tools</div>
+          <div class="skill">Research</div>
+          <div class="skill">Problem Solving</div>
+          <div class="skill">Communication</div>
+          <div class="skill">Analytics</div>
+          <div class="skill">Teamwork</div>
+          <div class="skill">Adaptability</div>
+          <div class="skill">Business Thinking</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Certifications</div>
+
+        <div class="card">
+          <h3>AI Tools Workshop</h3>
+          <p>Hands-on exposure to modern AI productivity and workflow tools.</p>
+        </div>
+      </div>
+
+    </aside>
+
+    <main class="main">
+
+      <div class="main-header">
+        <div class="headline">
+          <h2>Future-Oriented Student</h2>
+          <p>
+            Motivated student pursuing Technology and Business Management at Masters’ Union. Focused on AI integration, innovation systems, analytical thinking, and emerging technology ecosystems. Strong adaptability with a high learning curve and interest in solving modern business challenges.
+          </p>
+        </div>
+
+        <div class="status">
+          Open to Opportunities
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Education</div>
+
+        <div class="timeline">
+
+          <div class="card">
+            <h3>Masters’ Union</h3>
+            <div class="meta">Technology & Business Management • Expected 2030</div>
+            <p>
+              Incoming student exploring interdisciplinary business systems, innovation frameworks, AI applications, and future-focused management practices.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Delhi Public School (DPS)</h3>
+            <div class="meta">Commerce with Maths • Graduation 2026</div>
+            <p>
+              Academic focus on analytical reasoning, mathematics, commerce, and structured problem-solving.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Core Strengths</div>
+
+        <div class="timeline">
+
+          <div class="card">
+            <h3>Analytical Thinking</h3>
+            <p>
+              Strong inclination toward logical reasoning, system-based thinking, and understanding patterns in technology and business.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Technology Curiosity</h3>
+            <p>
+              Actively exploring AI tools, emerging technologies, digital productivity systems, and innovation-driven workflows.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Adaptability</h3>
+            <p>
+              Comfortable learning rapidly evolving concepts and adapting to new systems, environments, and tools.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="footer">
+        Designed with futuristic glassmorphism UI • Single-page responsive resume
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
+```
